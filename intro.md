@@ -857,7 +857,7 @@ ckpscn   : set checkpoint scn for a datafile
 
 ## 对于损坏的ORACLE EXP或EXPDP导出文件，可以使用dsr dumpexp或dsr dumppump命令分析导出文件，生成导出文件的SQL语句。例如：
 
-        $ dsr dumpexp sh.exp
+    $ dsr dumpexp sh.exp
         
 
 
@@ -896,7 +896,41 @@ ckpscn   : set checkpoint scn for a datafile
     TABLE CUSTOMERS output file path : /home/oracle/data_1694581378/CUSTOMERS_2966461.csv
 
 
-    $ dsr dumppump  /d02/sh.expdp 
+    $ dsr dumppump  sh.expdp 
+
+    ==================================================>BEGIN table PRODUCTS OFFSET 46130976 ~ 46143642 = 12 KB <==================================================
+    
+    
+    
+    ==================================================>BEGIN table SALES OFFSET 36449768 ~ 38100659 = 1 MB <==================================================
+    
+    
+    
+    ==================================================>BEGIN table SALES OFFSET 16932328 ~ 19034900 = 2 MB <==================================================
+    
+    
+    
+    ==================================================>BEGIN table SALES OFFSET 38108648 ~ 40213549 = 2 MB <==================================================
+    
+    
+    
+    ==================================================>BEGIN table SALES OFFSET 19045864 ~ 21098961 = 1 MB <==================================================
+    
+    
+    
+    ==================================================>END   table PRODUCTS OFFSET 46130976 ~ 46143642 = 12 KB  processed 72 rows<==================================================
+    
+    TABLE PRODUCTS output file path : /home/oracle/pump_1694641065/SH.PRODUCTS_88065.csv
+    
+    
+    ==================================================>BEGIN table CUSTOMERS OFFSET 272384 ~ 10589674 = 9 MB <==================================================
+    
+    
+    
+    ==================================================>END   table SALES OFFSET 36449768 ~ 38100659 = 1 MB  processed 48874 rows<==================================================
+    
+    TABLE SALES output file path : /home/oracle/pump_1694641065/SH.SALES_87995.csv
+
 
 
 ## 对于损坏的文件系统或ASM，或者误删除的ORACLE数据文件。可以使用dsr scandev <device>命令扫描设备，以合并数据块碎片的原理恢复数据文件。例如：
