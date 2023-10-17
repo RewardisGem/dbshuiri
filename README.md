@@ -42,7 +42,7 @@ DbShuiRi (DSR) is designed to address Oracle datafile issues by providing a comm
 
 ### Technical Details:
 - DSR provides a variety of commands to handle different aspects of datafile and database management, including setting/checking values like the checkpoint SCN, creation SCN, database ID, and more.
-- It also offers commands for block-level operations, marking datafile blocks as corrupt, summing datafile blocks, and more, providing a comprehensive toolkit for database administrators in the recovery and maintenance of Oracle databases ([source](https://github.com/RewardisGem/dbshuiri)).
+- It also offers commands for block-level operations, marking datafile blocks as corrupt, summing datafile blocks, and more, providing a comprehensive toolkit for database administrators in the recovery and maintenance of Oracle databases.
 
 ### Summary:
 DbShuiRi (DSR) is a powerful tool for Oracle database administrators, offering a granular level of control over datafile headers, which are crucial for the operation and recovery of Oracle databases. Through a set of well-defined commands, DSR facilitates the manipulation of key datafile attributes, aiding in the recovery of databases from various error states and corruption scenarios.
