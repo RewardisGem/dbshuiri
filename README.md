@@ -27,6 +27,13 @@ DbShuiRi (DSR) is designed to address Oracle datafile issues by providing a comm
    - An attempt to open the database with resetlogs (`alter database open resetlogs;`) results in error `ORA-01139` since this operation is only valid after an incomplete database recovery.
    - The commands provided by DSR can be used to rectify the header information, set the appropriate SCN values, and proceed with the recovery operations to get the database back online ([source](https://github.com/RewardisGem/dbshuiri)).
 
+
+- **CASE Oracle Datafile Damaged by Malware/Ransomware -- devos**:
+   - In situations where a datafile is compromised by malware or ransomware, DSR can aid in recovery. 
+   - The `dsr initfake` command can be used to create a good datafile header, essentially faking a healthy state for the datafile.
+   - Post this, the `dsr fitsize` command can be used to adjust the datafile header to fit the real size of the datafile, aiding in the restoration of the database.
+
+
 ### Working Principles:
 1. **Datafile Header Manipulation**: 
    - The primary principle behind DSR's operation is manipulating Oracle datafile headers. By modifying certain header values like the checkpoint SCN, DSR helps to overcome inconsistencies that prevent a database from starting up or functioning correctly.
