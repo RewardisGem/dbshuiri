@@ -362,14 +362,14 @@ We need repair the datafile header , and then recover the database.
 We will fake a datafile header first , and then change some parameter .
 
 
-initfake : initialize a fake datafile header
-rfn      : set rfn for a datafile
-fno      : set fno for a datafile
-tsn      : set TS$.TS# for a datafile
-tsname   : set TS$.NAME for a datafile
-crsscn   : set crsscn for a datafile
-fitsize  : make datafile header fit to the real size
-ckpscn   : set checkpoint scn for a datafile
+- initfake : initialize a fake datafile header
+- rfn      : set rfn for a datafile
+- fno      : set fno for a datafile
+- tsn      : set TS$.TS# for a datafile
+- tsname   : set TS$.NAME for a datafile
+- crsscn   : set crsscn for a datafile
+- fitsize  : make datafile header fit to the real size
+- ckpscn   : set checkpoint scn for a datafile
 
 
 
