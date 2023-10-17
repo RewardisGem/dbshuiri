@@ -10,22 +10,22 @@ DBSHURI DSR is a tool for quick fix oracle datafile.
 DSR is a command line tool , it can be used to edit oracle datafile header , and then recover the database.
 
  ### Core Functionality:
-DbShuiRi (DSR) is designed to address Oracle datafile issues by providing a command-line interface for users to execute various commands targeting the datafile header to facilitate database recovery ([source](https://github.com/RewardisGem/dbshuiri)).
+DbShuiRi (DSR) is designed to address Oracle datafile issues by providing a command-line interface for users to execute various commands targeting the datafile header to facilitate database recovery.
 
 ### Key Commands and Operations:
 - **Backup and Restore Datafile Header**: 
   - `backuphdr`: This command backs up the datafile header.
-  - `restorehdr`: This command restores the datafile header from a backup ([source](https://github.com/RewardisGem/dbshuiri)).
+  - `restorehdr`: This command restores the datafile header from a backup.
 - **Manipulate Checkpoint SCN**:
-  - `ckpscn`: This command sets the checkpoint System Change Number (SCN) for a datafile, which is crucial for maintaining data consistency in Oracle databases ([source](https://github.com/RewardisGem/dbshuiri)).
+  - `ckpscn`: This command sets the checkpoint System Change Number (SCN) for a datafile, which is crucial for maintaining data consistency in Oracle databases.
 - **View Datafile Header Content**:
-  - `hdr`: This command displays the content of the datafile header, providing insight into the crucial metadata stored in the header ([source](https://github.com/RewardisGem/dbshuiri)).
+  - `hdr`: This command displays the content of the datafile header, providing insight into the crucial metadata stored in the header.
 
 ### Application in Real-world Scenarios:
 - **Lost Current Redo Log File Scenario**:
    - When the current redo log file is lost, Oracle will throw errors (`ORA-00313` and `ORA-00312`) upon attempting to open the database. 
    - An attempt to open the database with resetlogs (`alter database open resetlogs;`) results in error `ORA-01139` since this operation is only valid after an incomplete database recovery.
-   - The commands provided by DSR can be used to rectify the header information, set the appropriate SCN values, and proceed with the recovery operations to get the database back online ([source](https://github.com/RewardisGem/dbshuiri)).
+   - The commands provided by DSR can be used to rectify the header information, set the appropriate SCN values, and proceed with the recovery operations to get the database back online.
 
 
 - **CASE Oracle Datafile Damaged by Malware/Ransomware -- devos**:
