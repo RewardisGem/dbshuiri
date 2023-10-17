@@ -372,6 +372,7 @@ We will fake a datafile header first , and then change some parameter .
 8. ckpscn   : set checkpoint scn for a datafile
 
 
+SCRIPT:
 
      export ORACLE_SID=ORCL
      dsr initfake sysaux.Devos
