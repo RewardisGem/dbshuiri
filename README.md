@@ -9,7 +9,37 @@ DBSHURI DSR is a tool for quick fix oracle datafile.
 
 DSR is a command line tool , it can be used to edit oracle datafile header , and then recover the database.
 
- 
+ ### Core Functionality:
+DbShuiRi (DSR) is designed to address Oracle datafile issues by providing a command-line interface for users to execute various commands targeting the datafile header to facilitate database recovery ([source](https://github.com/RewardisGem/dbshuiri)).
+
+### Key Commands and Operations:
+- **Backup and Restore Datafile Header**: 
+  - `backuphdr`: This command backs up the datafile header.
+  - `restorehdr`: This command restores the datafile header from a backup ([source](https://github.com/RewardisGem/dbshuiri)).
+- **Manipulate Checkpoint SCN**:
+  - `ckpscn`: This command sets the checkpoint System Change Number (SCN) for a datafile, which is crucial for maintaining data consistency in Oracle databases ([source](https://github.com/RewardisGem/dbshuiri)).
+- **View Datafile Header Content**:
+  - `hdr`: This command displays the content of the datafile header, providing insight into the crucial metadata stored in the header ([source](https://github.com/RewardisGem/dbshuiri)).
+
+### Application in Real-world Scenarios:
+- **Lost Current Redo Log File Scenario**:
+   - When the current redo log file is lost, Oracle will throw errors (`ORA-00313` and `ORA-00312`) upon attempting to open the database. 
+   - An attempt to open the database with resetlogs (`alter database open resetlogs;`) results in error `ORA-01139` since this operation is only valid after an incomplete database recovery.
+   - The commands provided by DSR can be used to rectify the header information, set the appropriate SCN values, and proceed with the recovery operations to get the database back online ([source](https://github.com/RewardisGem/dbshuiri)).
+
+### Working Principles:
+1. **Datafile Header Manipulation**: 
+   - The primary principle behind DSR's operation is manipulating Oracle datafile headers. By modifying certain header values like the checkpoint SCN, DSR helps to overcome inconsistencies that prevent a database from starting up or functioning correctly.
+2. **Command-line Interface**: 
+   - DSR operates through a command-line interface, providing a suite of commands for precise control over datafile header values and other datafile properties. This CLI approach allows for targeted interventions to resolve specific issues with Oracle datafiles.
+
+### Technical Details:
+- DSR provides a variety of commands to handle different aspects of datafile and database management, including setting/checking values like the checkpoint SCN, creation SCN, database ID, and more.
+- It also offers commands for block-level operations, marking datafile blocks as corrupt, summing datafile blocks, and more, providing a comprehensive toolkit for database administrators in the recovery and maintenance of Oracle databases ([source](https://github.com/RewardisGem/dbshuiri)).
+
+### Summary:
+DbShuiRi (DSR) is a powerful tool for Oracle database administrators, offering a granular level of control over datafile headers, which are crucial for the operation and recovery of Oracle databases. Through a set of well-defined commands, DSR facilitates the manipulation of key datafile attributes, aiding in the recovery of databases from various error states and corruption scenarios.
+
 
  
 
