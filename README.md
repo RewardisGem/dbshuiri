@@ -373,170 +373,166 @@ We will fake a datafile header first , and then change some parameter .
 
 
 
-
-
-
-
-    export ORACLE_SID=ORCL
-    dsr initfake sysaux.Devos
-    dsr initfake appdata5.Devos
-    dsr initfake appdata4.Devos
-    dsr initfake appdata3.Devos
-    dsr initfake appdata2.Devos
-    dsr initfake appdata1.Devos
-    dsr initfake users01.Devos
-    dsr initfake undotbs1.Devos
-    dsr initfake system.Devos
-    
-    
-    
-    dsr fno  1        system.Devos
-    dsr rfn  1        system.Devos
-    dsr tsn  0        system.Devos
-    dsr tsname SYSTEM system.Devos
-    dsr crsscn 7      system.Devos
-    dsr fitsize       system.Devos
-    
-    
-    
-    
-    dsr fno  2         sysaux.Devos
-    dsr rfn  2         sysaux.Devos
-    dsr tsn  1         sysaux.Devos
-    dsr tsname SYSAUX  sysaux.Devos
-    dsr crsscn 1835       sysaux.Devos
-    dsr fitsize        sysaux.Devos
-    
-    
-    
-    
-    dsr fno  3        undotbs1.Devos
-    dsr rfn  3        undotbs1.Devos
-    dsr tsn  2        undotbs1.Devos
-    dsr tsname UNDOTBS1  undotbs1.Devos
-    dsr crsscn 894817      undotbs1.Devos
-    dsr fitsize       undotbs1.Devos
-    
-    
-    
-    
-    
-    dsr fno  5        appdata1.Devos
-    dsr rfn  5        appdata1.Devos
-    dsr tsn  6        appdata1.Devos
-    dsr tsname APPDATA appdata1.Devos
-    dsr crsscn 942964      appdata1.Devos
-    dsr fitsize       appdata1.Devos
-    
-    
-    
-    
-    dsr fno  6          appdata2.Devos
-    dsr rfn  6          appdata2.Devos
-    dsr tsn  6          appdata2.Devos
-    dsr tsname APPDATA  appdata2.Devos
-    dsr crsscn 943286        appdata2.Devos
-    dsr fitsize         appdata2.Devos
-    
-    
-    
-    
-    dsr fno  7        appdata3.Devos
-    dsr rfn  7        appdata3.Devos
-    dsr tsn  6        appdata3.Devos
-    dsr tsname APPDATA appdata3.Devos
-    dsr crsscn 943555      appdata3.Devos
-    dsr fitsize       appdata3.Devos
-    
-    
-    
-    
-    dsr fno  8        appdata4.Devos
-    dsr rfn  8        appdata4.Devos
-    dsr tsn  6        appdata4.Devos
-    dsr tsname APPDATA appdata4.Devos
-    dsr crsscn 943834     appdata4.Devos
-    dsr fitsize       appdata4.Devos
-    
-    
-    
-    
-    dsr fno  9        appdata5.Devos
-    dsr rfn  9        appdata5.Devos
-    dsr tsn  6        appdata5.Devos
-    dsr tsname APPDATA appdata5.Devos
-    dsr crsscn 944272     appdata5.Devos
-    dsr fitsize       appdata5.Devos
-    
-    
-    
-    
-    
-    dsr ckpscn 1366772141 sysaux.Devos
-    dsr ckpscn 1366772141 appdata5.Devos
-    dsr ckpscn 1366772141 appdata4.Devos
-    dsr ckpscn 1366772141 appdata3.Devos
-    dsr ckpscn 1366772141 appdata2.Devos
-    dsr ckpscn 1366772141 appdata1.Devos
-    dsr ckpscn 1366772141 users01.Devos
-    dsr ckpscn 1366772141 undotbs1.Devos
-    dsr ckpscn 1366772141 system.Devos
-    
-    
-    
-    
-    
-    
-    export ORACLE_SID=ORCL
-    
-    sqlplus / as sysdba  <<EOF
-    shutdown abort;
-    startup nomount;
-    create spfile from pfile;
-    shutdown abort;
-    startup nomount;
-    alter system set undo_management=MANUAL scope=spfile;
-    shutdown abort;
-    
-    startup nomount;
-    CREATE CONTROLFILE REUSE DATABASE "ORCL"  RESETLOGS  NOARCHIVELOG
-    MAXLOGFILES 16
-    MAXLOGMEMBERS 3
-    MAXDATAFILES 100
-    MAXINSTANCES 8
-    MAXLOGHISTORY 292
-    -- STANDBY LOGFILE
-    DATAFILE
-    '/d02/devos/sysaux.Devos',
-    '/d02/devos/appdata5.Devos',
-    '/d02/devos/appdata4.Devos',
-    '/d02/devos/appdata3.Devos',
-    '/d02/devos/appdata2.Devos',
-    '/d02/devos/appdata1.Devos',
-    '/d02/devos/undotbs1.Devos',
-    '/d02/devos/system.Devos'
-    CHARACTER SET ZHS16GBK;
-    
-    
-    
-    
-    ALTER DATABASE OPEN RESETLOGS;
-    
-    
-    alter tablespace temp add tempfile '/d02/devos/temp01.dbf' size 500M reuse;
-    
-    
-    
-    
-    EOF
-    
-    
-    exp \'\/ as sysdba\' file=\/dev\/null volsize=2000g owner=HDappdataHQS,HDappdataCTS
-    
-    
-    sqlplus / as sysdba <<EOF
-    shutdown abort;
-    EOF
+     export ORACLE_SID=ORCL
+     dsr initfake sysaux.Devos
+     dsr initfake appdata5.Devos
+     dsr initfake appdata4.Devos
+     dsr initfake appdata3.Devos
+     dsr initfake appdata2.Devos
+     dsr initfake appdata1.Devos
+     dsr initfake users01.Devos
+     dsr initfake undotbs1.Devos
+     dsr initfake system.Devos
+     
+     
+     
+     dsr fno  1        system.Devos
+     dsr rfn  1        system.Devos
+     dsr tsn  0        system.Devos
+     dsr tsname SYSTEM system.Devos
+     dsr crsscn 7      system.Devos
+     dsr fitsize       system.Devos
+     
+     
+     
+     
+     dsr fno  2         sysaux.Devos
+     dsr rfn  2         sysaux.Devos
+     dsr tsn  1         sysaux.Devos
+     dsr tsname SYSAUX  sysaux.Devos
+     dsr crsscn 1835       sysaux.Devos
+     dsr fitsize        sysaux.Devos
+     
+     
+     
+     
+     dsr fno  3        undotbs1.Devos
+     dsr rfn  3        undotbs1.Devos
+     dsr tsn  2        undotbs1.Devos
+     dsr tsname UNDOTBS1  undotbs1.Devos
+     dsr crsscn 894817      undotbs1.Devos
+     dsr fitsize       undotbs1.Devos
+     
+     
+     
+     
+     
+     dsr fno  5        appdata1.Devos
+     dsr rfn  5        appdata1.Devos
+     dsr tsn  6        appdata1.Devos
+     dsr tsname APPDATA appdata1.Devos
+     dsr crsscn 942964      appdata1.Devos
+     dsr fitsize       appdata1.Devos
+     
+     
+     
+     
+     dsr fno  6          appdata2.Devos
+     dsr rfn  6          appdata2.Devos
+     dsr tsn  6          appdata2.Devos
+     dsr tsname APPDATA  appdata2.Devos
+     dsr crsscn 943286        appdata2.Devos
+     dsr fitsize         appdata2.Devos
+     
+     
+     
+     
+     dsr fno  7        appdata3.Devos
+     dsr rfn  7        appdata3.Devos
+     dsr tsn  6        appdata3.Devos
+     dsr tsname APPDATA appdata3.Devos
+     dsr crsscn 943555      appdata3.Devos
+     dsr fitsize       appdata3.Devos
+     
+     
+     
+     
+     dsr fno  8        appdata4.Devos
+     dsr rfn  8        appdata4.Devos
+     dsr tsn  6        appdata4.Devos
+     dsr tsname APPDATA appdata4.Devos
+     dsr crsscn 943834     appdata4.Devos
+     dsr fitsize       appdata4.Devos
+     
+     
+     
+     
+     dsr fno  9        appdata5.Devos
+     dsr rfn  9        appdata5.Devos
+     dsr tsn  6        appdata5.Devos
+     dsr tsname APPDATA appdata5.Devos
+     dsr crsscn 944272     appdata5.Devos
+     dsr fitsize       appdata5.Devos
+     
+     
+     
+     
+     
+     dsr ckpscn 1366772141 sysaux.Devos
+     dsr ckpscn 1366772141 appdata5.Devos
+     dsr ckpscn 1366772141 appdata4.Devos
+     dsr ckpscn 1366772141 appdata3.Devos
+     dsr ckpscn 1366772141 appdata2.Devos
+     dsr ckpscn 1366772141 appdata1.Devos
+     dsr ckpscn 1366772141 users01.Devos
+     dsr ckpscn 1366772141 undotbs1.Devos
+     dsr ckpscn 1366772141 system.Devos
+     
+     
+     
+     
+     
+     
+     export ORACLE_SID=ORCL
+     
+     sqlplus / as sysdba  <<EOF
+     shutdown abort;
+     startup nomount;
+     create spfile from pfile;
+     shutdown abort;
+     startup nomount;
+     alter system set undo_management=MANUAL scope=spfile;
+     shutdown abort;
+     
+     startup nomount;
+     CREATE CONTROLFILE REUSE DATABASE "ORCL"  RESETLOGS  NOARCHIVELOG
+     MAXLOGFILES 16
+     MAXLOGMEMBERS 3
+     MAXDATAFILES 100
+     MAXINSTANCES 8
+     MAXLOGHISTORY 292
+     -- STANDBY LOGFILE
+     DATAFILE
+     '/d02/devos/sysaux.Devos',
+     '/d02/devos/appdata5.Devos',
+     '/d02/devos/appdata4.Devos',
+     '/d02/devos/appdata3.Devos',
+     '/d02/devos/appdata2.Devos',
+     '/d02/devos/appdata1.Devos',
+     '/d02/devos/undotbs1.Devos',
+     '/d02/devos/system.Devos'
+     CHARACTER SET ZHS16GBK;
+     
+     
+     
+     
+     ALTER DATABASE OPEN RESETLOGS;
+     
+     
+     alter tablespace temp add tempfile '/d02/devos/temp01.dbf' size 500M reuse;
+     
+     
+     
+     
+     EOF
+     
+     
+     exp \'\/ as sysdba\' file=\/dev\/null volsize=2000g owner=HDappdataHQS,HDappdataCTS
+     
+     
+     sqlplus / as sysdba <<EOF
+     shutdown abort;
+     EOF
 
 
 
